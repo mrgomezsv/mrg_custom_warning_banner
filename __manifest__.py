@@ -10,10 +10,11 @@
     'website': "https://mrgomezsv.github.io/",
     "assets": {
         "web.assets_backend": [
-            "/mrg_custom_warning_banner/static/src/xml/warning_banner.xml",
-            "/mrg_custom_warning_banner/static/src/js/warning_banner.js"
+            "mrg_custom_warning_banner/static/src/xml/warning_banner.xml",
+            "mrg_custom_warning_banner/static/src/js/warning_banner.js"
         ]
     },
     "installable": True,
-    "application": False
+    "application": False,
+    "auto_install": False,
 }

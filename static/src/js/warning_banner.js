@@ -1,29 +1,38 @@
 /** @odoo-module **/
 
-import { registry } from '@web/core/registry';
+import { Component, useState, onWillStart } from "@odoo/owl";
+import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
-import { Component, onWillStart } from "@odoo/owl";
 
-class WarningBanner extends Component {
+export class WarningBanner extends Component {
     setup() {
         this.orm = useService("orm");
-        this.enabled = false;
+        this.state = useState({
+            enabled: false,
+            warningText: '⚠️ FACTURA PENDIENTE DE PAGO'
+        });
 
         onWillStart(async () => {
-            const config = await this.orm.call(
-                'res.config.settings',
-                'get_warning_banner_status',
-                []
-            );
-            this.enabled = config.enable_warning_banner || false;
+            try {
+                const config = await this.orm.call(
+                    'res.config.settings',
+                    'get_warning_banner_status',
+                    []
+                );
+                this.state.enabled = config.enable_warning_banner || false;
+                this.state.warningText = config.warning_text || '⚠️ FACTURA PENDIENTE DE PAGO';
+            } catch (error) {
+                console.error('Error loading warning banner config:', error);
+                this.state.enabled = false;
+            }
         });
     }
 }
 
-WarningBanner.template = 'custom_warning_banner.WarningBanner';
+WarningBanner.template = 'mrg_custom_warning_banner.WarningBanner';
 
-const systrayRegistry = registry.category('systray');
-systrayRegistry.add('warning_banner', {
+// Registrar en el systray (barra superior)
+registry.category('systray').add('warning_banner', {
     Component: WarningBanner,
-    sequence: 100,
+    sequence: 1,
 });

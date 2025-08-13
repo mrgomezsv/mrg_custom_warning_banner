@@ -1,27 +1,25 @@
 from odoo import models, fields, api
 
+
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     enable_warning_banner = fields.Boolean(
         string='Enable Warning Banner',
-        config_parameter='custom_warning_banner.enable_warning_banner'
+        related='company_id.warning_banner_enabled',
+        readonly=False,
     )
 
     warning_banner_text = fields.Char(
         string='Banner Text',
-        config_parameter='custom_warning_banner.warning_text',
-        default='⚠️ FACTURA PENDIENTE DE PAGO'
+        related='company_id.warning_banner_text',
+        readonly=False,
     )
 
     @api.model
     def get_warning_banner_status(self):
-        ICPSudo = self.env['ir.config_parameter'].sudo()
-        enable_param = ICPSudo.get_param('custom_warning_banner.enable_warning_banner', default='False')
+        company = self.env.company
         return {
-            'enable_warning_banner': enable_param == 'True',
-            'warning_text': ICPSudo.get_param(
-                'custom_warning_banner.warning_text',
-                default='⚠️ FACTURA PENDIENTE DE PAGO'
-            )
+            'enable_warning_banner': bool(company.warning_banner_enabled),
+            'warning_text': company.warning_banner_text or '⚠️ FACTURA PENDIENTE DE PAGO',
         }

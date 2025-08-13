@@ -1,7 +1,7 @@
 {
     "name": "Custom Warning Banner",
     "version": "1.0",
-    "summary": "Display a persistent banner if config is enabled",
+    "summary": "Muestra un banner de advertencia en el backend, configurable por compañía (multi-compañía): activar/desactivar y definir texto personalizado por empresa desde Ajustes",
     "depends": ["base", "web"],
     "data": [
         "views/res_config_settings_view.xml"

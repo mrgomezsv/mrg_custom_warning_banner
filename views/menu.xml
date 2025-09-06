@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Acción para abrir la configuración -->
+    <record id="action_warning_banner_config" model="ir.actions.act_window">
+        <field name="name">Configuración del Banner</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'mrg_custom_warning_banner'}</field>
+    </record>
+
     <!-- Menú principal para Banner de Advertencia -->
     <menuitem id="menu_warning_banner_root"
               name="⚠️ Banner de Advertencia"
@@ -12,13 +21,4 @@
               parent="menu_warning_banner_root"
               action="action_warning_banner_config"
               sequence="10"/>
-
-    <!-- Acción para abrir la configuración -->
-    <record id="action_warning_banner_config" model="ir.actions.act_window">
-        <field name="name">Configuración del Banner</field>
-        <field name="res_model">res.config.settings</field>
-        <field name="view_mode">form</field>
-        <field name="target">inline</field>
-        <field name="context">{'module': 'mrg_custom_warning_banner'}</field>
-    </record>
 </odoo>

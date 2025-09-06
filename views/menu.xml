@@ -13,12 +13,6 @@
     <menuitem id="menu_warning_banner_root"
               name="⚠️ Banner de Advertencia"
               web_icon="mrg_custom_warning_banner,static/description/icon.png"
-              sequence="100"/>
-
-    <!-- Submenú de configuración -->
-    <menuitem id="menu_warning_banner_config"
-              name="Configuración"
-              parent="menu_warning_banner_root"
               action="action_warning_banner_config"
-              sequence="10"/>
+              sequence="100"/>
 </odoo>

@@ -3,23 +3,23 @@
     "version": "1.0",
     "summary": "Muestra un banner de advertencia personalizable en el backend de Odoo",
     "description": """
-        Banner de Advertencia Personalizado
-        ===================================
-        
-        Este módulo permite mostrar un banner de advertencia personalizable en la parte superior 
-        de todas las páginas del backend de Odoo.
-        
-        Características:
-        * Configurable por compañía (multi-compañía)
-        * Activar/desactivar el banner desde Ajustes
-        * Texto personalizable por empresa
-        * Interfaz intuitiva en Ajustes > Banner de Advertencia
-        
-        Configuración:
-        1. Ve a Ajustes > Banner de Advertencia
-        2. Activa "Mostrar Banner de Advertencia"
-        3. Personaliza el texto del banner
-        4. Guarda los cambios
+Banner de Advertencia Personalizado
+===================================
+
+Este módulo permite mostrar un banner de advertencia personalizable en la parte superior 
+de todas las páginas del backend de Odoo.
+
+Características:
+* Configurable por compañía (multi-compañía)
+* Activar/desactivar el banner desde Ajustes
+* Texto personalizable por empresa
+* Interfaz intuitiva en Ajustes > Banner de Advertencia
+
+Configuración:
+1. Ve a Ajustes > Banner de Advertencia
+2. Activa "Mostrar Banner de Advertencia"
+3. Personaliza el texto del banner
+4. Guarda los cambios
     """,
     "depends": ["base", "web"],
     "data": [

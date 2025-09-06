@@ -14,9 +14,10 @@
                                 <field name="enable_warning_banner"/>
                             </div>
                             <div class="o_setting_right_pane">
-                                <label for="enable_warning_banner">Mostrar Banner de Advertencia</label>
-                                <div class="text-muted">
-                                    Activa esta opción para mostrar un banner de advertencia en la parte superior de todas las páginas
+                                <label for="enable_warning_banner" class="fw-bold">Mostrar Banner de Advertencia</label>
+                                <div class="text-muted mt-2">
+                                    <i class="fa fa-info-circle me-1"></i>
+                                    Activa esta opción para mostrar un banner de advertencia en la parte superior de todas las páginas del sistema.
                                 </div>
                             </div>
                         </div>
@@ -25,9 +26,10 @@
                                 <field name="warning_banner_text"/>
                             </div>
                             <div class="o_setting_right_pane">
-                                <label for="warning_banner_text">Texto del Banner</label>
-                                <div class="text-muted">
-                                    Texto que se mostrará en el banner de advertencia
+                                <label for="warning_banner_text" class="fw-bold">Texto del Banner</label>
+                                <div class="text-muted mt-2">
+                                    <i class="fa fa-edit me-1"></i>
+                                    Personaliza el mensaje que se mostrará en el banner de advertencia.
                                 </div>
                             </div>
                         </div>

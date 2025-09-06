@@ -23,6 +23,7 @@ Configuración:
     """,
     "depends": ["base", "web"],
     "data": [
+        "views/menu.xml",
         "views/res_config_settings_view.xml"
     ],
     'author': "Mario Roberto",
@@ -34,6 +35,7 @@ Configuración:
         ]
     },
     "installable": True,
-    "application": False,
+    "application": True,
     "auto_install": False,
+    "icon": "/mrg_custom_warning_banner/static/description/icon.png",
 }

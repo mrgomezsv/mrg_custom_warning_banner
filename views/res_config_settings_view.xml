@@ -5,12 +5,13 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[contains(@class,'settings')]" position="inside">
+            <xpath expr="//div[@class='app_settings_block'][last()]" position="after">
                 <div class="app_settings_block" data-string="Banner de Advertencia" data-key="custom_warning_banner">
                     <h2>⚠️ Banner de Advertencia</h2>
+                    
+                    <!-- Primera fila: Checkbox para activar/desactivar -->
                     <div class="row mt16 o_settings_container">
-                        <!-- Campo para activar/desactivar banner -->
-                        <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="col-12 o_setting_box">
                             <div class="o_setting_left_pane">
                                 <field name="enable_warning_banner"/>
                             </div>
@@ -24,13 +25,13 @@
                         </div>
                     </div>
                     
+                    <!-- Segunda fila: Campo de texto -->
                     <div class="row mt16 o_settings_container">
-                        <!-- Campo para el texto del banner -->
                         <div class="col-12 o_setting_box">
                             <div class="o_setting_left_pane">
                                 <field name="warning_banner_text" 
                                        placeholder="⚠️ FACTURA PENDIENTE DE PAGO"
-                                       style="width: 100%; min-width: 400px;"/>
+                                       style="width: 100%; min-width: 500px; max-width: 800px;"/>
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="warning_banner_text" class="fw-bold">Texto del Banner</label>

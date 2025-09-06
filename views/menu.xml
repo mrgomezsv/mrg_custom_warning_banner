@@ -12,7 +12,6 @@
     <!-- Menú principal para Banner de Advertencia -->
     <menuitem id="menu_warning_banner_root"
               name="⚠️ Banner de Advertencia"
-              web_icon="mrg_custom_warning_banner,static/description/icon.png"
               action="action_warning_banner_config"
               sequence="100"/>
 </odoo>

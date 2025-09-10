@@ -3,15 +3,17 @@
     <record id="res_config_settings_view_form_warning_banner" model="ir.ui.view">
         <field name="name">res.config.settings.warning.banner</field>
         <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@class='app_settings_block'][last()]" position="after">
-                <div class="app_settings_block" data-string="Banner de Advertencia" data-key="custom_warning_banner">
+            <!-- Insertar después de la sección de Usuarios -->
+            <xpath expr="//div[@id='invite_users']" position="after">
+                <!-- Sección Banner de Advertencia -->
+                <div id="warning_banner_settings" class="app_settings_block" data-string="Banner de Advertencia" data-key="warning_banner">
                     <h2>⚠️ Banner de Advertencia</h2>
                     
-                    <!-- Primera fila: Checkbox para activar/desactivar -->
+                    <!-- Checkbox para activar/desactivar -->
                     <div class="row mt16 o_settings_container">
-                        <div class="col-12 o_setting_box">
+                        <div class="col-12 col-lg-6 o_setting_box">
                             <div class="o_setting_left_pane">
                                 <field name="enable_warning_banner"/>
                             </div>
@@ -25,20 +27,35 @@
                         </div>
                     </div>
                     
-                    <!-- Segunda fila: Campo de texto -->
+                    <!-- Campo de texto del banner -->
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 o_setting_box">
-                            <div class="o_setting_left_pane">
+                            <div class="o_setting_left_pane" style="width: 50%; margin-left: 5%;">
                                 <field name="warning_banner_text" 
                                        placeholder="⚠️ FACTURA PENDIENTE DE PAGO"
-                                       style="width: 100%; min-width: 500px; max-width: 800px;"/>
+                                       style="width: 100%; min-height: 40px; padding: 12px; font-size: 14px; border-radius: 6px; border: 2px solid #e0e0e0; resize: none;"/>
                             </div>
-                            <div class="o_setting_right_pane">
+                            <div class="o_setting_right_pane" style="width: 30%;">
                                 <label for="warning_banner_text" class="fw-bold">Texto del Banner</label>
                                 <div class="text-muted mt-2">
-                                    <i class="fa fa-edit me-1"></i>
+                                    <i class="fa fa-edit me-1" title="Editar texto"></i>
                                     Personaliza el mensaje que se mostrará en el banner de advertencia.
                                 </div>
+                                <div class="text-muted mt-2">
+                                    <i class="fa fa-info-circle me-1" title="Información"></i>
+                                    <small>Puedes usar emojis y texto largo.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información adicional -->
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12">
+                            <div class="alert alert-info" role="alert">
+                                <i class="fa fa-lightbulb-o me-2" title="Consejo"></i>
+                                <strong>Consejo:</strong> El banner aparecerá en la parte superior de todas las páginas del backend cuando esté activado. 
+                                Esta habilitado para soportar multi-compañía.
                             </div>
                         </div>
                     </div>

@@ -24,9 +24,12 @@ class ResConfigSettings(models.TransientModel):
         """
         Retorna el estado actual del banner de advertencia para la compañía actual.
         Útil para el frontend JavaScript.
+        Soporta multi-compañía usando la compañía del contexto.
         """
+        # Obtener la compañía actual del contexto (multi-compañía)
         company = self.env.company
         return {
             'enable_warning_banner': bool(company.warning_banner_enabled),
             'warning_text': company.warning_banner_text or '⚠️ FACTURA PENDIENTE DE PAGO',
+            'company_id': company.id,  # Incluir ID de compañía para referencia
         }

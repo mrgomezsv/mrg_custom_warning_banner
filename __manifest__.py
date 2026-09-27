@@ -1,6 +1,6 @@
 {
     "name": "⚠️ Banner de Advertencia Personalizado",
-    "version": "1.1",
+    "version": "19.0.1.1",
     "summary": "Muestra un banner de advertencia personalizable en el backend de Odoo",
     "description": """
 Banner de Advertencia Personalizado

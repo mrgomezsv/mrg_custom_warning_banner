@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-name="mrg_custom_warning_banner.WarningBanner" owl="1">
-        <div t-if="state.enabled"
+    <t t-name="mrg_custom_warning_banner.WarningBanner">
+        <div t-if="this.state.enabled"
              class="o_warning_banner_systray"
              style="background: linear-gradient(135deg, #ffd700, #ffed4e); 
                     color: #333; 
@@ -13,7 +13,7 @@
                     border-left: 4px solid #ffb300;
                     animation: pulse 2s infinite, blink 1.5s infinite;">
             <i class="fa fa-exclamation-triangle me-2"></i>
-            <span t-esc="state.warningText or '⚠️ FACTURA PENDIENTE DE PAGO'"/>
+            <span t-out="this.state.warningText or '⚠️ FACTURA PENDIENTE DE PAGO'"/>
         </div>
         
         <style>

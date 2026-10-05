@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "⚠️ Banner de Advertencia Personalizado",
     "version": "20.0.1.1",
     "summary": "Muestra un banner de advertencia personalizable en el backend de Odoo",

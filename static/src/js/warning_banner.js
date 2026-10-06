@@ -7,8 +7,7 @@ export class WarningBanner extends Component {
 
     setup() {
         this.orm = useService("orm");
-        this.companyService = useService("company");
-        // OWL 3 (Odoo 20) ya no tiene useState: el estado reactivo se crea con proxy
+        // OWL 3 (Odoo 20): el estado reactivo se crea con proxy
         this.state = proxy({
             enabled: false,
             warningText: "⚠️ FACTURA PENDIENTE DE PAGO",
@@ -21,15 +20,15 @@ export class WarningBanner extends Component {
 
     async loadBannerConfig() {
         try {
-            // Pasar el contexto con allowed_company_ids para asegurar multi-compañía
             const config = await this.orm.call(
-                "res.config.settings",
+                "res.company",
                 "get_warning_banner_status",
-                [],
-                { context: { allowed_company_ids: this.companyService.allowedCompanyIds } }
+                []
             );
-            this.state.enabled = config.enable_warning_banner || false;
-            this.state.warningText = config.warning_text || "⚠️ FACTURA PENDIENTE DE PAGO";
+            if (config) {
+                this.state.enabled = Boolean(config.enable_warning_banner);
+                this.state.warningText = config.warning_text || "⚠️ FACTURA PENDIENTE DE PAGO";
+            }
         } catch (error) {
             console.error("Error loading warning banner config:", error);
             this.state.enabled = false;
@@ -38,4 +37,9 @@ export class WarningBanner extends Component {
 }
 
 // Registrar en el systray (barra superior)
-registry.category("systray").add("warning_banner", { Component: WarningBanner }, { sequence: 1 });
+export const systrayItem = {
+    Component: WarningBanner,
+};
+
+registry.category("systray").add("warning_banner", systrayItem, { sequence: 1 });
+

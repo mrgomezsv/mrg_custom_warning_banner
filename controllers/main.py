@@ -4,7 +4,7 @@ from odoo.http import request  # type: ignore
 
 
 class WarningBannerController(http.Controller):
-    @http.route('/custom_warning_banner/check_banner', type='jsonrpc', auth='user')
+    @http.route('/custom_warning_banner/check_banner', type='json', auth='user')
     def check_banner(self):
         company = request.env.company
         return {

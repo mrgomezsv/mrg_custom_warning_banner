@@ -1,0 +1,39 @@
+.o_warning_banner_container {
+    display: flex;
+    align-items: center;
+}
+
+.o_warning_banner_systray {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+    padding: 6px 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 4px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #ffb300;
+    animation: warning-banner-pulse 2s infinite, warning-banner-blink 1.5s infinite;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+        transform: scale(1.03);
+        transition: transform 0.2s ease;
+        animation-play-state: paused;
+    }
+}
+
+@keyframes warning-banner-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes warning-banner-blink {
+    0% { opacity: 1; }
+    25% { opacity: 0.7; }
+    50% { opacity: 1; }
+    75% { opacity: 0.85; }
+    100% { opacity: 1; }
+}

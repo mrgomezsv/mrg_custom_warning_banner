@@ -1,6 +1,6 @@
 {
     "name": "⚠️ Banner de Advertencia Personalizado",
-    "version": "20.0.1.2",
+    "version": "20.0.1.3",
     "summary": "Muestra un banner de advertencia personalizable en el backend de Odoo",
     "description": """
 Banner de Advertencia Personalizado
@@ -33,6 +33,7 @@ El banner aparecerá en la barra superior del sistema con un diseño llamativo y
     'website': "https://mrgomezsv.github.io/",
     "assets": {
         "web.assets_backend": [
+            "mrg_custom_warning_banner/static/src/scss/warning_banner.scss",
             "mrg_custom_warning_banner/static/src/xml/warning_banner.xml",
             "mrg_custom_warning_banner/static/src/js/warning_banner.js"
         ]
